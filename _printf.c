@@ -19,19 +19,28 @@ int _printf(const char *format, ...)
 	va_start(values, format);
 	while (format[i] != '\0')
 	{
-		j = 2;
-		while (j >= 0)
+		if (format[i] == '%')
 		{
-			if (v[j].format[0] == format[i] && v[j].format[1] == format[i + 1])
+			j = 0;
+			while (j < 2)
 			{
-				len += v[j].f(values);
-				i += 2;
+				if (format[i + 1] == *(v[j].format + 1))
+				{
+					len += v[j].f(values);
+					break;
+				}
+				j++;
 			}
-			j--;
+			if (j == 2)
+				_putchar(format[i]);
+			i += 2;
 		}
-		_putchar(format[i]);
-		len++;
-		i++;
+		else
+		{
+			_putchar(format[i]);
+			len++;
+			i++;
+		}
 	}
 	va_end(values);
 	return (len);
