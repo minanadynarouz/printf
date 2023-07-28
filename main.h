@@ -9,7 +9,7 @@
 
 typedef struct printer
 {
-	char *format;
+	char *id;
 	int (*f)();
 } print_args;
 
