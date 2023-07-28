@@ -7,6 +7,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/**
+ * struct printer - match conversion specifiers for printf.
+ * @id: type char pointer of the specifier.
+ * @f: pointer to function to convert specifier.
+ */
+
 typedef struct printer
 {
 	char *id;
