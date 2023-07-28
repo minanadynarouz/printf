@@ -2,7 +2,7 @@
 
 /**
  * print_percentage - function to print %
- * @args: arguments.
+ * Return: 1 if success.
  */
 
 int print_percentage(void)
