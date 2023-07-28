@@ -33,8 +33,13 @@ int _printf(const char *format, ...)
 			}
 			if (j == 2)
 			{
-				_putchar(format[i]);
-				len++;
+				_putchar('%');
+				if (format[i + 1] != '\0')
+				{
+					_putchar(format[i + 1]);
+					len++;
+				}
+				i++;
 			}
 			i += 2;
 		}
