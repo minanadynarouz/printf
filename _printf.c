@@ -1,39 +1,31 @@
 #include "main.h"
-/**
- * _printf - is a function that selects function to print
- * based on specifiers.
- * @format: identifier to use.
- * Return: length of output.
- */
-int _printf(const char * const format, ...)
-{
-	convert_match m[] = {
-		{"%s", printf_string}, {"%c", printf_char},
-		{"%%", printf_37},
-		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
-		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
-		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
-		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
-	};
 
-	va_list args;
+/**
+ * _printf - function to print any arg.
+ * @format: is specifier.
+ * Return: length of printed output.
+ */
+
+int _printf(const char *format, ...)
+{
+	print_args v[] = {
+		{"%c", print_char},
+		{"%s", print_string},
+		{"%%", print_percentage}};
+
+	va_list values;
 	int i = 0, j, len = 0;
 
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-
-Here:
+	va_start(values, format);
 	while (format[i] != '\0')
 	{
-		j = 13;
+		j = 2;
 		while (j >= 0)
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			if (v[j].format[0] == format[i] && v[j].format[1] == format[i + 1])
 			{
-				len += m[j].f(args);
-				i = i + 2;
-				goto Here;
+				len += v[j].f(values);
+				i += 2;
 			}
 			j--;
 		}
@@ -41,6 +33,6 @@ Here:
 		len++;
 		i++;
 	}
-	va_end(args);
+	va_end(values);
 	return (len);
 }
