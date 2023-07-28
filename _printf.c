@@ -3,6 +3,7 @@
 /**
  * _printf - function to print any arg.
  * @format: is specifier.
+ * @...: ellipsis
  * Return: length of printed output.
  */
 
