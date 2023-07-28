@@ -32,7 +32,10 @@ int _printf(const char *format, ...)
 				j++;
 			}
 			if (j == 2)
+			{
 				_putchar(format[i]);
+				len++;
+			}
 			i += 2;
 		}
 		else
