@@ -33,6 +33,8 @@ int print_int(va_list args)
 	if (num == 0)
 	{
 		_putchar(0 + '0');
+		count = 1;
+		return (count);
 	}
 
 	if (num < 0)
