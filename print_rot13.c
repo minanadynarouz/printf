@@ -8,7 +8,7 @@
 
 int print_rot13(va_list args)
 {
-	int i, j, counter = 0;
+	int i, j, n, counter = 0;
 	char *s = va_arg(args, char *);
 	char data[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
 	char dataRot[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
@@ -17,13 +17,20 @@ int print_rot13(va_list args)
 		s = "(null)";
 	for (i = 0; s[i]; i++)
 	{
-		for (j = 0; data[j]; j++)
+		n = 0;
+		for (j = 0; data[j] && !n; j++)
 		{
 			if (s[i] == data[j])
 			{
 				_putchar(dataRot[j]);
 				counter++;
+				n = 1;
 			}
+		}
+		if (!n)
+		{
+			_putchar(s[i]);
+			counter++;
 		}
 	}
 	return (counter);
