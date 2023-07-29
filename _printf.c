@@ -16,7 +16,8 @@ int _printf(const char *format, ...)
 		{"%i", print_int},
 		{"%d", print_int},
 		{"%b", print_binary},
-		{"%r", print_rev_string}
+		{"%r", print_rev_string},
+		{"%R", print_rot13}
 	};
 
 	va_list args;
@@ -29,7 +30,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 6;
+		j = 7;
 		while (j >= 0)
 		{
 			if (v[j].id[0] == format[i] && v[j].id[1] == format[i + 1])
