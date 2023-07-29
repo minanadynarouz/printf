@@ -17,7 +17,6 @@ int print_rot13(va_list args)
 		s = "(null)";
 	for (i = 0; s[i]; i++)
 	{
-		n = 0;
 		for (j = 0; data[j]; j++)
 		{
 			if (s[i] == data[j])
