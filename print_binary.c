@@ -10,8 +10,8 @@ int print_binary(va_list args)
 {
 	int binary[32];
 	int i = 0, j, count = 0;
-
 	unsigned int num = va_arg(args, unsigned int);
+
 	if (num == 0)
 	{
 		_putchar('0');
