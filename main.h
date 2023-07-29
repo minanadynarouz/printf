@@ -19,11 +19,24 @@ typedef struct printer
 	int (*f)();
 } print_args;
 
+/**
+ * struct list_s - to hold nums in node and reverse it
+ * @n: numbers to be added.
+ * @next: pointer to add of next node.
+ */
+
+typedef struct list_s
+{
+    int n;
+    struct list_s *next;
+} list_t;
+
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list args);
 int _strlen(char *str);
 int print_percentage(void);
 int print_string(va_list args);
+int print_int(va_list args);
 
 #endif
