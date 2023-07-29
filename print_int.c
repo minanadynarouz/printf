@@ -30,6 +30,11 @@ int print_int(va_list args)
 	list_t *head;
 	head = NULL;
 
+	if (num == 0)
+	{
+		_putchar(0 + '0');
+	}
+
 	if (num < 0)
 	{
 		_putchar('-');
