@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 		{"%s", print_string},
 		{"%%", print_percentage},
 		{"%i", print_int},
-		{"%d", print_int}
+		{"%d", print_int},
+		{"%b", print_binary}
 	};
 
 	va_list args;
@@ -27,7 +28,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 4;
+		j = 5;
 		while (j >= 0)
 		{
 			if (v[j].id[0] == format[i] && v[j].id[1] == format[i + 1])
