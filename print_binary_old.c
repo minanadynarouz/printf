@@ -8,26 +8,15 @@
 
 int print_binary(va_list args)
 {
-	int binary[32];
-	int i = 0, j, count = 0;
-
+	int total_bits = (sizeof(unsigned int) * 8);
 	unsigned int num = va_arg(args, unsigned int);
-	if (num == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
+	int i, count = 0;
 
-	while (num > 0)
+	for (i = total_bits - 1; i >= 0; i--)
 	{
-		binary[i] = num & 1;
-		num = num >> 1;
-		i++;
-	}
+		int bit = (num >> i) & 1;
 
-	for (j = i - 1; j >= 0; j--)
-	{
-		_putchar(binary[j] + '0');
+		_putchar(bit + '0');
 		count++;
 	}
 	return (count);
